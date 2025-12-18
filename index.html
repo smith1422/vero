@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestro Amor ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe6f0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 48px;
+      position: relative;
+      z-index: 11;
+    }
+    #contador {
+      font-size: 30px;
+      margin: 10px;
+      color: #333;
+      position: relative;
+      z-index: 11;
+    }
+    #frase {
+      font-size: 24px;
+      color: #d63384;
+      text-align: center;
+      margin: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    .foto {
+      position: absolute;
+      width: 200px;
+      border-radius: 10px;
+      animation: caer 10s linear infinite;
+    }
+    @keyframes caer {
+      0% { transform: translateY(-150px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Primer Mes ❤️</h1>
+  <div id="contador"></div>
+  <div id="frase">Eres el amor de mi vida, Vero 💕</div>
+
+  <script>
+    // Fecha de inicio de la relación
+    const inicio = new Date("2025-11-17"); 
+    const hoy = new Date();
+    const diferencia = Math.floor((hoy - inicio) / (1000 * 60 * 60 * 24));
+    document.getElementById("contador").innerText = 
+      "Llevamos " + diferencia + " días juntos 💖";
+
+    // Lista de fotos (pon los nombres reales de tus archivos)
+    const fotos = [
+      "img/foto1.jpg",
+      "img/foto2.jpg",
+      "img/foto3.jpg",
+      "img/foto4.jpg",
+      "img/foto5.jpg",
+      "img/foto6.jpg",
+      "img/foto7.jpg",
+      "img/foto8.jpg",
+      "img/foto9.jpg",
+      "img/foto10.jpg",
+      "img/foto12.jpg",
+      "img/foto13.jpg",
+      "img/foto14.jpg",
+      "img/foto15.jpg",
+      "img/foto16.jpg",
+      "img/foto17.jpg",
+      "img/foto18.jpg",
+      "img/foto19.jpg",
+      "img/foto20.jpg",
+      "img/foto21.jpg",
+      "img/foto22.jpg",
+      "img/foto23.jpg",
+      "img/foto24.jpg",
+      "img/foto25.jpg"
+    ];
+
+    // Crear lluvia de fotos
+    function crearFoto() {
+      const img = document.createElement("img");
+      img.src = fotos[Math.floor(Math.random() * fotos.length)];
+      img.className = "foto";
+      img.style.left = Math.random() * window.innerWidth + "px";
+      img.style.animationDuration = (6 + Math.random() * 5) + "s";
+      document.body.appendChild(img);
+
+      // Eliminar después de caer
+      setTimeout(() => { img.remove(); }, 10000);
+    }
+
+    setInterval(crearFoto, 800); // cada 0.8 segundos aparece una foto
+  </script>
+</body>
+</html>
